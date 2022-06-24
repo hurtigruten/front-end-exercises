@@ -1,4 +1,9 @@
-const renderRows = (row: any) => (
+import { sum } from '../utils/sum';
+
+interface IEmployee {}
+
+// TODO: there is something missing...
+const renderRows = (row: IEmployee) => (
   <tr>
     <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
       {row.firstName}
@@ -8,6 +13,9 @@ const renderRows = (row: any) => (
     </td>
     <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
       {row.email}
+    </td>
+    <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
+      {sum([row.salary, row.age])}
     </td>
   </tr>
 );
@@ -26,10 +34,12 @@ export const EmployeeRow = (props: any) => {
           <th className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
             Email
           </th>
+          <th>Years of XP</th>
         </tr>
       </thead>
       <tbody className="divide-y divide-gray-200 bg-white">
-        {props.employees.forEach((employee: any) => renderRows(employee))}
+        {/* FIXME: it fails but why? */}
+        {props.employees.forEach((employee: IEmployee) => renderRows(employee))}
       </tbody>
     </table>
   );
