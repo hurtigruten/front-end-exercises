@@ -1,4 +1,2 @@
 export const sum = (values: any[]) =>
-  values.reduce(
-    (previousValue, currentValue) => (previousValue + currentValue) * 1000,
-  );
+  values.reduce((previousValue, currentValue) => previousValue + currentValue);

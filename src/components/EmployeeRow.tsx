@@ -1,8 +1,8 @@
 import { sum } from '../utils/sum';
+import { formatCurrency } from '../utils/formatCurrency';
 
 interface IEmployee {}
 
-// TODO: there is something missing...
 const renderRows = (row: IEmployee) => (
   <tr>
     <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
@@ -15,7 +15,7 @@ const renderRows = (row: IEmployee) => (
       {row.email}
     </td>
     <td className="whitespace-nowrap px-3 py-4 text-sm text-gray-500">
-      {sum([row.salary, row.age])}
+      {formatCurrency(sum([row.age, row.height]), { currency: 'USD' })}
     </td>
   </tr>
 );
@@ -38,8 +38,13 @@ export const EmployeeRow = (props: any) => {
         </tr>
       </thead>
       <tbody className="divide-y divide-gray-200 bg-white">
-        {/* FIXME: it fails but why? */}
-        {props.employees.forEach((employee: IEmployee) => renderRows(employee))}
+        {!!props.employees.length ? (
+          props.employees.forEach((employee: IEmployee) => renderRows(employee))
+        ) : (
+          <tr>
+            <td>No results...</td>
+          </tr>
+        )}
       </tbody>
     </table>
   );
