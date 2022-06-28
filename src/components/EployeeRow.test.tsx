@@ -14,7 +14,7 @@ test('renders correctly', () => {
       age: 37,
       dob: '17/02/1985',
       salary: 1.0,
-      address: 'Address1',
+      address: 'Address1'
     },
     {
       id: 1002,
@@ -26,8 +26,8 @@ test('renders correctly', () => {
       age: 40,
       dob: '01/10/1982',
       salary: 2.0,
-      address: 'Address2',
-    },
+      address: 'Address2'
+    }
   ];
 
   const component = renderer.create(<EmployeeRow employees={data} />);

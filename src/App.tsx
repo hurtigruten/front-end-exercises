@@ -6,6 +6,7 @@ import './styles.css';
 export default function App() {
   const [query, setQuery] = useState('');
   const [data, setData] = useState([]);
+  const [isLoading, setIsLoading] = useState(false);
 
   const getUsers = useCallback(async () => {
     const response = await fetch('https://dummyjson.com/users');
@@ -15,7 +16,7 @@ export default function App() {
 
   const searchUsers = useCallback(async () => {
     const response = await fetch(
-      `https://dummyjson.com/users/search?q=${query}`,
+      `https://dummyjson.com/users/search?q=${query}`
     );
     const json = await response.json();
     setData(json.users);

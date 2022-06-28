@@ -34,7 +34,9 @@ export const EmployeeRow = (props: any) => {
           <th className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
             Email
           </th>
-          <th>Years of XP</th>
+          <th className="px-3 py-3.5 text-left text-sm font-semibold text-gray-900">
+            Years of XP
+          </th>
         </tr>
       </thead>
       <tbody className="divide-y divide-gray-200 bg-white">

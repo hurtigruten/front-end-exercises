@@ -4,9 +4,9 @@ export const formatCurrency = (
     maximumSignificantDigits?: number;
     currency: string;
   },
-  locale: string | string[] = [],
+  locale: string | string[] = []
 ) =>
   new Intl.NumberFormat(locale, {
     style: 'currency',
-    ...options,
+    ...options
   }).format(amount);
